@@ -1,3 +1,3 @@
 #!/bin/bash
 
-uv run main.py https://github.com/topisani/sidetree
+uv run src/main.py $@
