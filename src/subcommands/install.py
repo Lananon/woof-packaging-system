@@ -6,12 +6,10 @@ from pathlib import Path
 
 
 def install_package(package):
-  
-  # get home directory
   home = Path.home()
-  # get name of package
   pkgname = package.rsplit('/', 1).pop()
-  # clone package repo
+  print(pkgname)
+  
   destination = "/tmp/repo"
   try:
     shutil.rmtree(destination)
@@ -29,7 +27,6 @@ def install_package(package):
   except OSError as e:
     print("Error: ", e)
   
-  # copy uninstall script into info directory
   shutil.copyfile(destination + "/uninstall.sh", info_dir + "/uninstall.sh")
 
   # save commit ID to file in info dir
@@ -37,7 +34,7 @@ def install_package(package):
   with open(info_dir + "/commit", "w") as f:
     f.write(Repo(package).git.rev_parse("HEAD"))
   # save repo url for updating
-  with open(info_dir + "/origin", "w") as f:
+  with open(info_dir + "/remote", "w") as f:
     f.write(package)
   
 

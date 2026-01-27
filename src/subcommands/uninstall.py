@@ -20,4 +20,4 @@ def uninstall_package(package):
   print("removing pkginfo directory")
   shutil.rmtree(info_dir)
   print("done !!")
-  print("package removal completed")
+  print("-----------------------------------\npackage removal completed")

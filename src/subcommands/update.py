@@ -26,7 +26,7 @@ def update_system():
     package_dir = info_dir + "/" + package
     repo_url = open(package_dir + "/remote").read()
     print(package)
-  if input("-----------------------------\nproceed? (y/n): ") == "y":
+  if input("-----------------------------------\nproceed? (y/n): ") == "y":
     # actually update packages
     for package in packages_to_update:
       package_dir = info_dir + "/" + package
@@ -34,6 +34,6 @@ def update_system():
 
       install.install_package(repo_url)
     
-    print("-------------------- \nupdate completed !!")
+    print("-----------------------------------\nupdate completed !!")
   else:
     pass
