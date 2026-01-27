@@ -11,7 +11,8 @@ def main():
     uninstall.uninstall_package(sys.argv[2])
   if sys.argv[1] == "update":
     update.update_system()
-
+  if sys.argv[1] == "fetch-url":
+    install.install_package(sys.argv[2])
 
 if __name__ == "__main__":
   main()
