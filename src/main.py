@@ -1,18 +1,14 @@
 import sys
-from git import Repo
-import os
-import subprocess
+from subcommands import install
+from subcommands import uninstall
+
+
 
 def main():
-  repo_url = sys.argv[1]
-  destination = "/tmp/repo"
+  if sys.argv[1] == "fetch":
+    install.install_package(sys.argv[2])
+  if sys.argv[1] == "bite":
+    uninstall.uninstall_package(sys.argv[2])
 
-  fetched_repo = Repo.clone_from(repo_url, destination)
-  print(fetched_repo.working_dir)
-  
-  os.chdir(destination)
-  subprocess.call(["sh", os.getcwd() + "/install.sh"])
-
-  
 if __name__ == "__main__":
   main()
