@@ -17,3 +17,9 @@ this project currently doesnt have a PyPi package (tho ill work on getting that 
 
 run setup.sh if you want to automatically set up necessary directories
 
+commands:
+- fetch: install a package from system repo
+- bite: uninstall a package
+- update (no dog pun on this one unfortunately): update your packages
+- fetch-url: install a package from a git url
+
