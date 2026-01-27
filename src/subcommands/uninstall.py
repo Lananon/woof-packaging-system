@@ -6,13 +6,18 @@ from pathlib import Path
 def uninstall_package(package):
   home = Path.home()
   pkgname = pkgname = package.rsplit('/', 1).pop() 
-  uninstall_script_dir = str(home) + "/.woof/uninstall/" + pkgname
+  info_dir = str(home) + "/.woof/pkginfo/" + pkgname
 
-  os.chdir(uninstall_script_dir)
+
+  print ("running uninstall script...")
+  os.chdir(info_dir)
   subprocess.call(["sh", os.getcwd() + "/uninstall.sh"])
   
+  print("done !!")
   os.chdir(
       os.path.abspath(os.pardir)
   )
-  print(os.getcwd())
-  shutil.rmtree(uninstall_script_dir)
+  print("removing pkginfo directory")
+  shutil.rmtree(info_dir)
+  print("done !!")
+  print("package removal completed")
