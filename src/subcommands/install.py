@@ -7,7 +7,7 @@ from pathlib import Path
 
 def install_package(package):
   home = Path.home()
-  pkgname = package.rsplit('/', 1).pop()
+  pkgname = package.rstrip('/').rsplit('/', 1).pop()
   print(pkgname)
   
   destination = "/tmp/repo"
